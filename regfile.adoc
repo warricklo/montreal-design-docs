@@ -9,7 +9,7 @@ Register file
 *Project:* UBC ASIC / Montréal Project +
 *File:* `rtl/regfile.sv` +
 *Licence:* CERN Open Hardware Licence Version 2 - Permissive (CERN-OHL-P-2.0) +
-*Engineer:* Warrick Lo - wlo@warricklo.net
+*Engineert:* Warrick Lo - wlo@warricklo.net
 
 IP Overview
 -----------
@@ -35,7 +35,7 @@ Parameters
 | `ADDR_WIDTH`
 | `int unsigned`
 | 4
-| Address width; gives stem:[2^\texttt{ADDR_WIDTH}] words.
+| Address width; gives stem:[2^\texttt{ADDR\_WIDTH}] words.
 
 | `NUM_READ_PORTS`
 | `int unsigned`
@@ -50,13 +50,13 @@ Parameters
 
 | `NUM_WORDS`
 | `int unsigned`
-| stem:[2^\texttt{ADDR_WIDTH}]
+| stem:[2^\texttt{ADDR\_WIDTH}]
 | 16
 | Total number of registers.
 
 | `NUM_CHUNKS`
 | `int unsigned`
-| stem:[\texttt{WORD_WIDTH}/\texttt{CHUNK_WIDTH}]
+| stem:[\texttt{WORD\_WIDTH}/\texttt{CHUNK\_WIDTH}]
 | 4
 | Chunks per word.
 |===
@@ -76,7 +76,7 @@ Interface Specification
 
 | `chunk_sel_i`
 | input
-| stem:[\lceil\log_2{(\texttt{NUM_CHUNKS})}\rceil]
+| stem:[\lceil\log_2{(\texttt{NUM\_CHUNKS})}\rceil]
 | Selects which chunk is accessed this cycle.
 
 | `raddr_i[i]`
