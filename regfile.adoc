@@ -1,0 +1,115 @@
+Register file
+=============
+:toc:
+:numbered:
+:stem: latexmath
+
+*IP Name:* `regfile` +
+*Version:* 0.1.0 +
+*Project:* UBC ASIC / Montréal Project +
+*File:* `rtl/regfile.sv` +
+*Licence:* CERN Open Hardware Licence Version 2 - Permissive (CERN-OHL-P-2.0) +
+*Engineer:* Warrick Lo - wlo@warricklo.net
+
+IP Overview
+-----------
+
+Parameters
+----------
+
+.Parameters.
+[cols="2,1,1,3"]
+|===
+| Parameter | Type | Default | Description
+
+| `WORD_WIDTH`
+| `int unsigned`
+| 32
+| Full width of each register in bits.
+
+| `CHUNK_WIDTH`
+| `int unsigned`
+| 8
+| Width of one access chunk in bits.
+
+| `ADDR_WIDTH`
+| `int unsigned`
+| 4
+| Address width; gives stem:[2^\texttt{ADDR_WIDTH}] words.
+
+| `NUM_READ_PORTS`
+| `int unsigned`
+| 2
+| Number of independent combinational read ports.
+|===
+
+.Local parameters.
+[cols="2,1,3,1,3"]
+|===
+| Parameter | Type | Expression | Default | Description
+
+| `NUM_WORDS`
+| `int unsigned`
+| stem:[2^\texttt{ADDR_WIDTH}]
+| 16
+| Total number of registers.
+
+| `NUM_CHUNKS`
+| `int unsigned`
+| stem:[\texttt{WORD_WIDTH}/\texttt{CHUNK_WIDTH}]
+| 4
+| Chunks per word.
+|===
+
+Interface Specification
+-----------------------
+
+.Port table.
+[cols="1,1,1,2"]
+|===
+| Port Name | Direction | Width | Description
+
+| `clk_i`
+| input
+| 1
+| Rising-edge write clock.
+
+| `chunk_sel_i`
+| input
+| stem:[\lceil\log_2{(\texttt{NUM_CHUNKS})}\rceil]
+| Selects which chunk is accessed this cycle.
+
+| `raddr_i[i]`
+| input
+| `ADDR_WIDTH`
+| Read address for port stem:[i].
+
+| `rdata_o[i]`
+| output
+| `CHUNK_WIDTH`
+| Read data for port stem:[i] (one chunk).
+
+| `wen_i`
+| input
+| 1
+| Synchronous write enable.
+
+| `waddr_i`
+| input
+| `ADDR_WIDTH`
+| Write address.
+
+| `wdata_i`
+| input
+| `CHUNK_WIDTH`
+| Write data (one chunk).
+|===
+
+Architecture
+------------
+
+Timing
+------
+
+Design Notes
+------------
