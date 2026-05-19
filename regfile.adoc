@@ -4,12 +4,26 @@ Register file
 :numbered:
 :stem: latexmath
 
-*IP Name:* `regfile` +
-*Version:* 0.1.0 +
-*Project:* UBC ASIC / Montréal Project +
-*File:* `rtl/regfile.sv` +
-*Licence:* CERN Open Hardware Licence Version 2 - Permissive (CERN-OHL-P-2.0) +
-*Engineert:* Warrick Lo - wlo@warricklo.net
+[cols="h,5"]
+|===
+| IP Name
+| `regfile`
+
+| Version
+| 0.1.0
+
+| Project
+| UBC ASIC / Montréal Project
+
+| File
+| `rtl/regfile.sv`
+
+| Licence
+| CERN Open Hardware Licence Version 2 -- Permissive (CERN-OHL-P-2.0)
+
+| Engineer
+| Warrick Lo -- wlo@warricklo.net
+|===
 
 IP Overview
 -----------
@@ -63,6 +77,12 @@ Parameters
 
 Interface Specification
 -----------------------
+
+=== Types
+
+Not applicable.
+
+=== Ports
 
 .Port table.
 [cols="1,1,1,2"]
